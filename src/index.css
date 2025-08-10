@@ -204,6 +204,16 @@ body {
   box-shadow: var(--shadow-glow), 0 20px 40px rgba(139, 92, 246, 0.2);
 }
 
+.btn-glow::selection {
+  background: rgba(255, 255, 255, 0.3);
+  color: white;
+}
+
+.btn-glow *::selection {
+  background: rgba(255, 255, 255, 0.3);
+  color: white;
+}
+
 .btn-glass {
   background: var(--gradient-glass);
   backdrop-filter: blur(10px);

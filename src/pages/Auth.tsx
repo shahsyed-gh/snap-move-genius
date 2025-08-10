@@ -133,16 +133,16 @@ const Auth = () => {
                 <TabsTrigger 
                   value="signin" 
                   onClick={() => setIsSignUp(false)}
-                  className="data-[state=active]:btn-glow data-[state=active]:text-white transition-all duration-300"
+                  className="data-[state=active]:btn-glow data-[state=active]:text-white transition-all duration-300 selection:bg-white/30 selection:text-white"
                 >
-                  Sign In
+                  <span className="selection:bg-white/30 selection:text-white">Sign In</span>
                 </TabsTrigger>
                 <TabsTrigger 
                   value="signup" 
                   onClick={() => setIsSignUp(true)}
-                  className="data-[state=active]:btn-glow data-[state=active]:text-white transition-all duration-300"
+                  className="data-[state=active]:btn-glow data-[state=active]:text-white transition-all duration-300 selection:bg-white/30 selection:text-white"
                 >
-                  Sign Up
+                  <span className="selection:bg-white/30 selection:text-white">Sign Up</span>
                 </TabsTrigger>
               </TabsList>
               
@@ -174,21 +174,21 @@ const Auth = () => {
                   </div>
                    <Button 
                      type="submit" 
-                     className="w-full btn-glow text-white font-semibold py-4 text-lg btn-scale hover:scale-105 relative z-20"
+                     className="w-full btn-glow text-white font-semibold py-4 text-lg btn-scale hover:scale-105 relative z-20 selection:bg-white/30 selection:text-white"
                      disabled={loading}
                    >
-                    {loading ? (
-                      <div className="flex items-center space-x-2">
-                        <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
-                        <span>Signing in...</span>
-                      </div>
-                    ) : (
-                      <div className="flex items-center space-x-2">
-                        <LogIn className="w-5 h-5" />
-                        <span>Sign In</span>
-                      </div>
-                    )}
-                  </Button>
+                     {loading ? (
+                       <div className="flex items-center space-x-2 selection:bg-white/30 selection:text-white">
+                         <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                         <span className="selection:bg-white/30 selection:text-white">Signing in...</span>
+                       </div>
+                     ) : (
+                       <div className="flex items-center space-x-2 selection:bg-white/30 selection:text-white">
+                         <LogIn className="w-5 h-5" />
+                         <span className="selection:bg-white/30 selection:text-white">Sign In</span>
+                       </div>
+                     )}
+                   </Button>
                 </form>
               </TabsContent>
               
@@ -221,21 +221,21 @@ const Auth = () => {
                   </div>
                    <Button 
                      type="submit" 
-                     className="w-full btn-glow text-white font-semibold py-4 text-lg btn-scale hover:scale-105 relative z-20"
+                     className="w-full btn-glow text-white font-semibold py-4 text-lg btn-scale hover:scale-105 relative z-20 selection:bg-white/30 selection:text-white"
                      disabled={loading}
                    >
-                    {loading ? (
-                      <div className="flex items-center space-x-2">
-                        <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
-                        <span>Creating account...</span>
-                      </div>
-                    ) : (
-                      <div className="flex items-center space-x-2">
-                        <UserPlus className="w-5 h-5" />
-                        <span>Create Account</span>
-                      </div>
-                    )}
-                  </Button>
+                     {loading ? (
+                       <div className="flex items-center space-x-2 selection:bg-white/30 selection:text-white">
+                         <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                         <span className="selection:bg-white/30 selection:text-white">Creating account...</span>
+                       </div>
+                     ) : (
+                       <div className="flex items-center space-x-2 selection:bg-white/30 selection:text-white">
+                         <UserPlus className="w-5 h-5" />
+                         <span className="selection:bg-white/30 selection:text-white">Create Account</span>
+                       </div>
+                     )}
+                   </Button>
                 </form>
               </TabsContent>
             </Tabs>

@@ -149,34 +149,34 @@ const Auth = () => {
               <TabsContent value="signin">
                 <form onSubmit={handleSignIn} className="space-y-6">
                   <div className="space-y-4">
-                    <div className="relative group">
-                      <Mail className="absolute left-4 top-1/2 transform -translate-y-1/2 text-muted-foreground w-5 h-5 group-focus-within:text-primary transition-colors" />
-                      <Input
-                        type="email"
-                        placeholder="Enter your email"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                        className="pl-12 py-4 bg-background/50 backdrop-blur-sm border-2 border-muted hover:border-primary/50 focus:border-primary transition-all duration-300"
-                        required
-                      />
-                    </div>
-                    <div className="relative group">
-                      <Lock className="absolute left-4 top-1/2 transform -translate-y-1/2 text-muted-foreground w-5 h-5 group-focus-within:text-primary transition-colors" />
-                      <Input
-                        type="password"
-                        placeholder="Enter your password"
-                        value={password}
-                        onChange={(e) => setPassword(e.target.value)}
-                        className="pl-12 py-4 bg-background/50 backdrop-blur-sm border-2 border-muted hover:border-primary/50 focus:border-primary transition-all duration-300"
-                        required
-                      />
-                    </div>
+                     <div className="relative group">
+                       <Mail className="absolute left-4 top-1/2 transform -translate-y-1/2 text-muted-foreground w-5 h-5 group-focus-within:text-primary transition-colors z-10" />
+                       <Input
+                         type="email"
+                         placeholder="Enter your email"
+                         value={email}
+                         onChange={(e) => setEmail(e.target.value)}
+                         className="pl-12 py-4 bg-background/80 border-2 border-muted hover:border-primary/50 focus:border-primary transition-all duration-300 relative"
+                         required
+                       />
+                     </div>
+                     <div className="relative group">
+                       <Lock className="absolute left-4 top-1/2 transform -translate-y-1/2 text-muted-foreground w-5 h-5 group-focus-within:text-primary transition-colors z-10" />
+                       <Input
+                         type="password"
+                         placeholder="Enter your password"
+                         value={password}
+                         onChange={(e) => setPassword(e.target.value)}
+                         className="pl-12 py-4 bg-background/80 border-2 border-muted hover:border-primary/50 focus:border-primary transition-all duration-300 relative"
+                         required
+                       />
+                     </div>
                   </div>
-                  <Button 
-                    type="submit" 
-                    className="w-full btn-glow text-white font-semibold py-4 text-lg btn-scale hover:scale-105"
-                    disabled={loading}
-                  >
+                   <Button 
+                     type="submit" 
+                     className="w-full btn-glow text-white font-semibold py-4 text-lg btn-scale hover:scale-105 relative z-20"
+                     disabled={loading}
+                   >
                     {loading ? (
                       <div className="flex items-center space-x-2">
                         <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
@@ -195,35 +195,35 @@ const Auth = () => {
               <TabsContent value="signup">
                 <form onSubmit={handleSignUp} className="space-y-6">
                   <div className="space-y-4">
-                    <div className="relative group">
-                      <Mail className="absolute left-4 top-1/2 transform -translate-y-1/2 text-muted-foreground w-5 h-5 group-focus-within:text-primary transition-colors" />
-                      <Input
-                        type="email"
-                        placeholder="Enter your email"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                        className="pl-12 py-4 bg-background/50 backdrop-blur-sm border-2 border-muted hover:border-primary/50 focus:border-primary transition-all duration-300"
-                        required
-                      />
-                    </div>
-                    <div className="relative group">
-                      <Lock className="absolute left-4 top-1/2 transform -translate-y-1/2 text-muted-foreground w-5 h-5 group-focus-within:text-primary transition-colors" />
-                      <Input
-                        type="password"
-                        placeholder="Create a password (min. 6 characters)"
-                        value={password}
-                        onChange={(e) => setPassword(e.target.value)}
-                        className="pl-12 py-4 bg-background/50 backdrop-blur-sm border-2 border-muted hover:border-primary/50 focus:border-primary transition-all duration-300"
-                        required
-                        minLength={6}
-                      />
-                    </div>
+                     <div className="relative group">
+                       <Mail className="absolute left-4 top-1/2 transform -translate-y-1/2 text-muted-foreground w-5 h-5 group-focus-within:text-primary transition-colors z-10" />
+                       <Input
+                         type="email"
+                         placeholder="Enter your email"
+                         value={email}
+                         onChange={(e) => setEmail(e.target.value)}
+                         className="pl-12 py-4 bg-background/80 border-2 border-muted hover:border-primary/50 focus:border-primary transition-all duration-300 relative"
+                         required
+                       />
+                     </div>
+                     <div className="relative group">
+                       <Lock className="absolute left-4 top-1/2 transform -translate-y-1/2 text-muted-foreground w-5 h-5 group-focus-within:text-primary transition-colors z-10" />
+                       <Input
+                         type="password"
+                         placeholder="Create a password (min. 6 characters)"
+                         value={password}
+                         onChange={(e) => setPassword(e.target.value)}
+                         className="pl-12 py-4 bg-background/80 border-2 border-muted hover:border-primary/50 focus:border-primary transition-all duration-300 relative"
+                         required
+                         minLength={6}
+                       />
+                     </div>
                   </div>
-                  <Button 
-                    type="submit" 
-                    className="w-full btn-glow text-white font-semibold py-4 text-lg btn-scale hover:scale-105"
-                    disabled={loading}
-                  >
+                   <Button 
+                     type="submit" 
+                     className="w-full btn-glow text-white font-semibold py-4 text-lg btn-scale hover:scale-105 relative z-20"
+                     disabled={loading}
+                   >
                     {loading ? (
                       <div className="flex items-center space-x-2">
                         <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />

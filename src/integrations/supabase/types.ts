@@ -14,7 +14,152 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      items: {
+        Row: {
+          ai_confidence: number | null
+          category: string | null
+          condition: string | null
+          created_at: string | null
+          created_by_customer: boolean | null
+          customer_notes: string | null
+          description: string | null
+          estimated_value: number | null
+          id: string
+          is_fragile: boolean | null
+          move_id: string | null
+          name: string
+          photo_urls: string[] | null
+          priority_level: number | null
+          requires_verification: boolean | null
+          room_id: string | null
+          updated_at: string | null
+        }
+        Insert: {
+          ai_confidence?: number | null
+          category?: string | null
+          condition?: string | null
+          created_at?: string | null
+          created_by_customer?: boolean | null
+          customer_notes?: string | null
+          description?: string | null
+          estimated_value?: number | null
+          id?: string
+          is_fragile?: boolean | null
+          move_id?: string | null
+          name: string
+          photo_urls?: string[] | null
+          priority_level?: number | null
+          requires_verification?: boolean | null
+          room_id?: string | null
+          updated_at?: string | null
+        }
+        Update: {
+          ai_confidence?: number | null
+          category?: string | null
+          condition?: string | null
+          created_at?: string | null
+          created_by_customer?: boolean | null
+          customer_notes?: string | null
+          description?: string | null
+          estimated_value?: number | null
+          id?: string
+          is_fragile?: boolean | null
+          move_id?: string | null
+          name?: string
+          photo_urls?: string[] | null
+          priority_level?: number | null
+          requires_verification?: boolean | null
+          room_id?: string | null
+          updated_at?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "items_move_id_fkey"
+            columns: ["move_id"]
+            isOneToOne: false
+            referencedRelation: "moves"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "items_room_id_fkey"
+            columns: ["room_id"]
+            isOneToOne: false
+            referencedRelation: "rooms"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      moves: {
+        Row: {
+          created_at: string | null
+          customer_id: string | null
+          destination_address: string
+          id: string
+          origin_address: string
+          scheduled_date: string
+          status: string | null
+          updated_at: string | null
+        }
+        Insert: {
+          created_at?: string | null
+          customer_id?: string | null
+          destination_address: string
+          id?: string
+          origin_address: string
+          scheduled_date: string
+          status?: string | null
+          updated_at?: string | null
+        }
+        Update: {
+          created_at?: string | null
+          customer_id?: string | null
+          destination_address?: string
+          id?: string
+          origin_address?: string
+          scheduled_date?: string
+          status?: string | null
+          updated_at?: string | null
+        }
+        Relationships: []
+      }
+      rooms: {
+        Row: {
+          created_at: string | null
+          id: string
+          is_completed: boolean | null
+          items_count: number | null
+          move_id: string | null
+          name: string
+          room_type: string | null
+        }
+        Insert: {
+          created_at?: string | null
+          id?: string
+          is_completed?: boolean | null
+          items_count?: number | null
+          move_id?: string | null
+          name: string
+          room_type?: string | null
+        }
+        Update: {
+          created_at?: string | null
+          id?: string
+          is_completed?: boolean | null
+          items_count?: number | null
+          move_id?: string | null
+          name?: string
+          room_type?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "rooms_move_id_fkey"
+            columns: ["move_id"]
+            isOneToOne: false
+            referencedRelation: "moves"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
     }
     Views: {
       [_ in never]: never

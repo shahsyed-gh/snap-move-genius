@@ -1,4 +1,5 @@
 import { useState, useRef, useCallback } from 'react';
+import { autoCropImage } from '@/utils/autoCrop';
 
 export interface CapturedPhoto {
   file: File;
@@ -48,12 +49,12 @@ export const useCamera = () => {
     setIsActive(false);
   }, []);
 
-  const capturePhoto = useCallback((): Promise<CapturedPhoto | null> => {
-    if (!videoRef.current || !isActive) return Promise.resolve(null);
+  const capturePhoto = useCallback(async (): Promise<CapturedPhoto | null> => {
+    if (!videoRef.current || !isActive) return null;
 
     const canvas = document.createElement('canvas');
     const context = canvas.getContext('2d');
-    if (!context) return Promise.resolve(null);
+    if (!context) return null;
 
     const video = videoRef.current;
     canvas.width = video.videoWidth;
@@ -62,25 +63,46 @@ export const useCamera = () => {
     context.drawImage(video, 0, 0, canvas.width, canvas.height);
 
     return new Promise((resolve) => {
-      canvas.toBlob((blob) => {
+      canvas.toBlob(async (blob) => {
         if (!blob) {
           resolve(null);
           return;
         }
 
-        const file = new File([blob], `photo-${Date.now()}.jpg`, {
-          type: 'image/jpeg'
-        });
+        try {
+          // Create initial file
+          const originalFile = new File([blob], `photo-${Date.now()}.jpg`, {
+            type: 'image/jpeg'
+          });
 
-        const url = URL.createObjectURL(blob);
-        const photo: CapturedPhoto = {
-          file,
-          url,
-          timestamp: Date.now()
-        };
+          // Apply auto-cropping
+          console.log('Applying auto-crop to captured photo...');
+          const croppedFile = await autoCropImage(originalFile);
 
-        setPhotos(prev => [...prev, photo]);
-        resolve(photo);
+          const url = URL.createObjectURL(croppedFile);
+          const photo: CapturedPhoto = {
+            file: croppedFile,
+            url,
+            timestamp: Date.now()
+          };
+
+          setPhotos(prev => [...prev, photo]);
+          resolve(photo);
+        } catch (error) {
+          console.error('Error processing photo:', error);
+          // Fallback to original if cropping fails
+          const originalFile = new File([blob], `photo-${Date.now()}.jpg`, {
+            type: 'image/jpeg'
+          });
+          const url = URL.createObjectURL(blob);
+          const photo: CapturedPhoto = {
+            file: originalFile,
+            url,
+            timestamp: Date.now()
+          };
+          setPhotos(prev => [...prev, photo]);
+          resolve(photo);
+        }
       }, 'image/jpeg', 0.9);
     });
   }, [isActive]);

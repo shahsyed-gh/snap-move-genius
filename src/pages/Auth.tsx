@@ -174,18 +174,18 @@ const Auth = () => {
                   </div>
                    <Button 
                      type="submit" 
-                     className="w-full btn-glow text-white font-semibold py-4 text-lg btn-scale hover:scale-105 relative z-20 selection:bg-white/30 selection:text-white"
+                     className="w-full btn-glass text-foreground font-semibold py-4 text-lg btn-scale hover:scale-105 relative z-20 border border-primary/30 hover:border-primary/50"
                      disabled={loading}
                    >
                      {loading ? (
-                       <div className="flex items-center space-x-2 selection:bg-white/30 selection:text-white">
-                         <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
-                         <span className="selection:bg-white/30 selection:text-white">Signing in...</span>
+                       <div className="flex items-center space-x-2">
+                         <div className="w-5 h-5 border-2 border-primary/30 border-t-primary rounded-full animate-spin" />
+                         <span>Signing in...</span>
                        </div>
                      ) : (
-                       <div className="flex items-center space-x-2 selection:bg-white/30 selection:text-white">
+                       <div className="flex items-center space-x-2">
                          <LogIn className="w-5 h-5" />
-                         <span className="selection:bg-white/30 selection:text-white">Sign In</span>
+                         <span>Sign In</span>
                        </div>
                      )}
                    </Button>
@@ -221,18 +221,18 @@ const Auth = () => {
                   </div>
                    <Button 
                      type="submit" 
-                     className="w-full btn-glow text-white font-semibold py-4 text-lg btn-scale hover:scale-105 relative z-20 selection:bg-white/30 selection:text-white"
+                     className="w-full btn-glass text-foreground font-semibold py-4 text-lg btn-scale hover:scale-105 relative z-20 border border-primary/30 hover:border-primary/50"
                      disabled={loading}
                    >
                      {loading ? (
-                       <div className="flex items-center space-x-2 selection:bg-white/30 selection:text-white">
-                         <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
-                         <span className="selection:bg-white/30 selection:text-white">Creating account...</span>
+                       <div className="flex items-center space-x-2">
+                         <div className="w-5 h-5 border-2 border-primary/30 border-t-primary rounded-full animate-spin" />
+                         <span>Creating account...</span>
                        </div>
                      ) : (
-                       <div className="flex items-center space-x-2 selection:bg-white/30 selection:text-white">
+                       <div className="flex items-center space-x-2">
                          <UserPlus className="w-5 h-5" />
-                         <span className="selection:bg-white/30 selection:text-white">Create Account</span>
+                         <span>Create Account</span>
                        </div>
                      )}
                    </Button>

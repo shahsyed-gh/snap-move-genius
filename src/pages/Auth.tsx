@@ -133,16 +133,16 @@ const Auth = () => {
                 <TabsTrigger 
                   value="signin" 
                   onClick={() => setIsSignUp(false)}
-                  className="data-[state=active]:btn-glow data-[state=active]:text-white transition-all duration-300 selection:bg-white/30 selection:text-white"
+                  className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground transition-all duration-300"
                 >
-                  <span className="selection:bg-white/30 selection:text-white">Sign In</span>
+                  Sign In
                 </TabsTrigger>
                 <TabsTrigger 
                   value="signup" 
                   onClick={() => setIsSignUp(true)}
-                  className="data-[state=active]:btn-glow data-[state=active]:text-white transition-all duration-300 selection:bg-white/30 selection:text-white"
+                  className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground transition-all duration-300"
                 >
-                  <span className="selection:bg-white/30 selection:text-white">Sign Up</span>
+                  Sign Up
                 </TabsTrigger>
               </TabsList>
               

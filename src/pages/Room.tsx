@@ -175,7 +175,6 @@ const Room = () => {
                       <h3 className="font-medium">{item.name}</h3>
                       <p className="text-sm text-muted-foreground">{item.category}</p>
                       <Badge 
-                        size="sm" 
                         variant={item.ai_confidence >= 85 ? "default" : "secondary"}
                         className="mt-1"
                       >
